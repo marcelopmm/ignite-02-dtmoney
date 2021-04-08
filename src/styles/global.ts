@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 :root {
   --background: #f8f2f5;
+  --green: #33cc95;
   --red: #E52e4D;
   --blue: #5429cc;
   --blue-light: #6933ff;
@@ -18,11 +19,17 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 html {
-  @media (max-width: 1080px) {
+  @media (max-width: 1120px) {
     font-size: 93.75%; //15px: 93,75% do default da página 16px 
   }
   @media (max-width: 720px) {
-    font-size: 87.5%; //14px: 87.5% do default da pagina 16px
+    font-size: 82.5%; 
+  }
+  @media (max-width: 650px) {
+    font-size: 75.5%; 
+  }
+  @media (max-width: 500px) {
+    font-size: 65.5%;
   }
 
   body {
@@ -46,6 +53,44 @@ html {
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  .react-modal-overlay {
+    background: rgb(0, 0, 0, 0.6);
+    
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }  
+  
+  .react-modal-content {
+    width: 100%;
+    max-width: 576px;
+    background: var(--background);
+    border-radius:0.25rem;
+    padding: 3rem;
+    position: relative;
+  } 
+
+  .react-modal-close {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    right: 1.5rem;
+    top: 1.5rem;
+
+    transition: filter 0.2s;
+  
+  &:hover {
+    filter: brightness(0.7);
+  }
+  
   }
 }
 `
